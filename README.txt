@@ -1,18 +1,21 @@
-RAD PINKER
-==========
+RAD BACKGROUND CHANGER
+======================
 
-Applies the pink background to character images.
+Applies whatever background image you have to character images. Auto-detects and removes the original background, then composites onto your new background.
 
 REQUIREMENTS:
 - Python 3
 - Pillow: pip install Pillow
 
 USAGE:
-1. Put your character PNGs (with transparent backgrounds) in any folder
-2. Run: python rad_pinker.py image1.png image2.png
-3. Output will be in a "pink_output" folder
+  Single image:
+    python replace_background.py <input.png> <background.png> [output.png]
 
-Or just run without arguments to process all PNGs in current directory:
-   python rad_pinker.py
+  Batch folder:
+    python replace_background.py --batch <input_folder> <background.png> [output_folder]
 
-NOTE: Character images must have transparent backgrounds (PNG with alpha).
+EXAMPLES:
+  python replace_background.py wizard.png monolith_2000_centered.png wizard_output.png
+  python replace_background.py --batch ./characters monolith_2000_centered.png ./output
+
+Works with both transparent and solid-color backgrounds - the script auto-detects and handles both.
